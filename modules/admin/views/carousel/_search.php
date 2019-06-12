@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title_en') ?>
 
-    <?php // echo $form->field($model, 'contet_uz') ?>
+    <?php // echo $form->field($model, 'content_uz') ?>
 
     <?php // echo $form->field($model, 'content_ru') ?>
 

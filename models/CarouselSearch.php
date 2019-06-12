@@ -18,7 +18,7 @@ class CarouselSearch extends Carousel
     {
         return [
             [['id'], 'integer'],
-            [['image', 'title_uz', 'title_ru', 'title_en', 'contet_uz', 'content_ru', 'content_en'], 'safe'],
+            [['image', 'title_uz', 'title_ru', 'title_en', 'content_uz', 'content_ru', 'content_en'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class CarouselSearch extends Carousel
             ->andFilterWhere(['like', 'title_uz', $this->title_uz])
             ->andFilterWhere(['like', 'title_ru', $this->title_ru])
             ->andFilterWhere(['like', 'title_en', $this->title_en])
-            ->andFilterWhere(['like', 'contet_uz', $this->contet_uz])
+            ->andFilterWhere(['like', 'content_uz', $this->content_uz])
             ->andFilterWhere(['like', 'content_ru', $this->content_ru])
             ->andFilterWhere(['like', 'content_en', $this->content_en]);
 
