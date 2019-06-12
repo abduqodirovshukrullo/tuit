@@ -68,7 +68,9 @@
     <div class="home_slider_nav home_slider_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
     <div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 </div>
-
+<?php
+//print_r($carousel);
+?>
 <!-- Popular Courses -->
 
 <div class="courses">

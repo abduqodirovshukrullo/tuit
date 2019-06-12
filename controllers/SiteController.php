@@ -2,7 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Carousel;
+use app\models\Courses;
+use app\models\News;
 use app\models\Signup as SignupModel;
+use app\models\Teachers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -62,7 +66,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $carousel = Carousel::find()->all();
+        $courses  = Courses::find()->limit(3)->all();
+        $tutors = Teachers::find()->limit(4)->all();
+        $news  = News::find()->all();
+        return $this->render('index',
+        [
+            'carousel'=>$carousel,
+            'courses'=>$courses,
+            'tutors'=>$tutors,
+            'news'=>$news,
+        ]);
     }
 
     /**
