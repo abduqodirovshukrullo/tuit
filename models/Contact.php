@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\UploadImage;
 
 /**
  * This is the model class for table "contact".
@@ -21,7 +22,7 @@ use Yii;
  * @property string $phone
  * @property string $email
  */
-class Contact extends \yii\db\ActiveRecord
+class Contact extends UploadImage
 {
     /**
      * {@inheritdoc}

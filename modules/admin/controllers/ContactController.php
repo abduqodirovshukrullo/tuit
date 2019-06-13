@@ -2,12 +2,14 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\UploadImage;
 use Yii;
 use app\models\Contact;
 use app\models\ContactSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ContactController implements the CRUD actions for Contact model.
@@ -65,9 +67,16 @@ class ContactController extends Controller
     public function actionCreate()
     {
         $model = new Contact();
+//        $upload = new UploadImage();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->image = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
+            $model->save();
+            if ($model->upload()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+//            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
