@@ -10,6 +10,8 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@studentImgPath'=>'F:\OSPanel\domains\tuit\web\uploads\1\\',
+        '@studentImgUrl'=>'tuit\uploads\1',
     ],
     'modules' => [
         'admin' => [
@@ -35,6 +37,14 @@ $config = [
 
     ],
     'components' => [
+//        'fileStorage' => [
+//            'class' => 'trntv\filekit\Storage',
+//            'baseUrl' => '@web/uploads',
+//            'filesystem' => [
+//                'class' => 'app\components\filesystem\LocalFlysystemBuilder',
+//                'path' => '@webroot/uploads'
+//            ],
+//        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'tLgtvCbUtXO7qXF2NwASJdht5oE_6T0l',
@@ -83,8 +93,8 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-//            'admin/*',
-//            'rbac/*',
+            'admin/*',
+            'rbac/*',
 
         ]
     ],

@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title_uz',
             'title_ru',
             'title_en',
-            //'contet_uz:ntext',
+            //'content_uz:ntext',
             //'content_ru:ntext',
             //'content_en:ntext',
 

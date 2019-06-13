@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+//        'css/site.css',
         'styles/bootstrap.min.css',
         'plugins/font-awesome-4.7.0/css/font-awesome.min.css',
         'plugins/OwlCarousel2-2.2.1/owl.carousel.css',
