@@ -72,8 +72,6 @@ class CarouselController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             $model->image = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
             $model->save();
-
-
             if ($model->upload()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -99,9 +97,6 @@ class CarouselController extends Controller
 
             $mod = $model->image;
 
-
-
-
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
                 if($model->imageFile = UploadedFile::getInstance($model, 'imageFile'))
@@ -122,10 +117,6 @@ class CarouselController extends Controller
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
             }
-
-
-
-
         return $this->render('update', [
             'model' => $model,
         ]);

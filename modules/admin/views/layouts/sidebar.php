@@ -33,7 +33,7 @@ use yii\helpers\Url;
                         ],
                         [
                             'label' => 'Dashboard',
-                            'url' => ['default/index'],
+                            'url' => ['../admin/default/index'],
                             'icon' => '<i class="fa fa-tachometer"></i>',
                         ],
                         [
@@ -90,7 +90,7 @@ use yii\helpers\Url;
                                 ],
                                 [
                                     'label' => 'Blog Page',
-                                    'url' => ['blog/index'],
+                                    'url' => ['news/index'],
                                     'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 ],
                                 [
@@ -131,7 +131,7 @@ use yii\helpers\Url;
 
                                 [
                                     'label' => 'Add Teacher',
-                                    'url' => ['../admin/useradd/index'],
+                                    'url' => ['../admin/teachers/index'],
                                     'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 ],
 //                                [
@@ -142,13 +142,37 @@ use yii\helpers\Url;
                             ]
                         ],
                         [
+                            'label' => 'Users',
+                            'url' => ['../admin/user/index'],
+                            'icon' => '<i class="fa fa-file-text-o"></i>',
+                            'items' => [
+                                [
+                                    'label' => 'User',
+                                    'url' => ['../admin/user'],
+                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                ],
+//
+                                [
+                                    'label' => ' Add User',
+                                    'url' => ['../admin/user/add'],
+                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                ],
+//                                [
+//                                    'label' => 'Written Translation',
+//                                    'url' => ['written-translation/index'],
+//                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
+//                                ],
+                            ]
+
+                        ],
+                        [
                             'label' => 'Roles',
                             'url' => '#',
                             'icon' => '<i class="fa fa-file-text-o"></i>',
                             'items' => [
                                 [
                                     'label' => 'Assign Role',
-                                    'url' => ['../rbac/assignments'],
+                                    'url' => ['../rbac/assignment'],
                                     'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 ],
 //

@@ -44,8 +44,8 @@ AppAsset::register($this);
                             <nav class="main_nav_contaner ml-auto">
                                 <ul class="main_nav">
                                     <li><a href="#">Bosh sahifa</a></li>
-                                    <li><a href="about.html">Biz haqimizda</a></li>
-                                    <li class="activee"><a class="hoverr" href="courses.html">Kurslar</a></li>
+                                    <li><a href="<?=\yii\helpers\Url::to(['../site/about'])?>">Biz haqimizda</a></li>
+                                    <li class="activee"><a class="hoverr" href="<?=\yii\helpers\Url::to(['../site/courses'])?>">Kurslar</a></li>
                                     <!-- <li><a href="blog.html">Blog</a></li> -->
                                     <li><a href="blog.html">Yangiliklar</a></li>
                                     <li><a href="contact.html">Aloqa</a></li>
@@ -58,7 +58,7 @@ AppAsset::register($this);
                                         <li><a href="<?= \yii\helpers\Url::to(['/site/logout']) ;?>">Logout</a></li>
                                     <?php endif; ?>
                                     <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->role==2): ?>
-                                        <li><a href="<?= \yii\helpers\Url::to(['/admin/students']) ;?>">Students</a></li>
+                                        <li><a href="<?= \yii\helpers\Url::to(['/admin/tstudents']) ;?>">Students</a></li>
                                         <li><a href="<?= \yii\helpers\Url::to(['/site/logout']) ;?>">Logout</a></li>
                                     <?php endif; ?>
 

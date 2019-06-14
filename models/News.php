@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\UploadImage;
 
 /**
  * This is the model class for table "news".
@@ -17,7 +18,7 @@ use Yii;
  * @property string $content_en
  * @property int $status
  */
-class News extends \yii\db\ActiveRecord
+class News extends UploadImage
 {
     /**
      * {@inheritdoc}

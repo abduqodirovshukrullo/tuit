@@ -31,141 +31,19 @@ use yii\helpers\Url;
                             'label' => 'Home',
                             'options' => [ 'class' => 'nav-label' ]
                         ],
-                        [
-                            'label' => 'Dashboard',
-                            'url' => ['default/index'],
-                            'icon' => '<i class="fa fa-tachometer"></i>',
-                        ],
-                        [
-                            'label' => 'Teacher Page',
-                            'url' => '#',
-                            'icon' => '<i class="fa fa-file-text-o"></i>',
-                            'items' => [
 
-                                [
-                                    'label' => 'Home Page',
-                                    'url' => ['home-page/view','id' => 1],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Carousel',
-                                    'url' => ['carousel/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Process of Translation',
-                                    'url' => ['process/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Advantages',
-                                    'url' => ['advantages/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Partners',
-                                    'url' => ['partners/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                            ]
-                        ],
                         [
-                            'label' => 'About Page',
-                            'url' => '#',
+                            'label' => 'Student info',
+                            'url' => ['../admin/tstudents/'],
                             'icon' => '<i class="fa fa-file-text-o"></i>',
-                            'items' => [
-
-                                [
-                                    'label' => 'About Page',
-                                    'url' => ['about/view','id' => 1],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Workers',
-                                    'url' => ['workers/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Vacancies',
-                                    'url' => ['vacancy/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                            ]
-                        ],
-                        [
-                            'label' => 'Pages',
-                            'url' => '#',
-                            'icon' => '<i class="fa fa-file-text-o"></i>',
-                            'items' => [
-
-                                [
-                                    'label' => 'Contacts Page',
-                                    'url' => ['contacts/view','id' => 1],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Blog Page',
-                                    'url' => ['blog/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Courses Page',
-                                    'url' => ['courses/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Services page',
-                                    'url' => ['service/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Spheres of translations',
-                                    'url' => ['spheres/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                            ]
-                        ],
-                        [
-                            'label' => 'Orders',
-                            'url' => '#',
-                            'icon' => '<i class="fa fa-file-text-o"></i>',
-                            'items' => [
-
-                                [
-                                    'label' => 'Order Services',
-                                    'url' => ['order/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Translator',
-                                    'url' => ['translator/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Written Translation',
-                                    'url' => ['written-translation/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                            ]
-                        ],
-                        [
-                            'label' => 'Feedback',
-                            'url' => '#',
-                            'icon' => '<i class="fa fa-file-text-o"></i>',
-                            'items' => [
-
-                                [
-                                    'label' => 'Feedback',
-                                    'url' => ['feedback/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                                [
-                                    'label' => 'Comments',
-                                    'url' => ['comments/index'],
-                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
-                                ],
-                            ]
-                        ],
+//                            'items' => [
+//                                [
+//                                    'label' => 'Students',
+//                                    'url' => ['tstudents/'],
+//                                    'icon' => '<i class="fa fa-angle-double-right"></i>',
+//                                ],
+//                        ],
+                    ]
                     ]
                 ]);
             } catch ( Exception $e ) {

@@ -15,20 +15,19 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class AboutAppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-//        'css/site.css',
         'styles/bootstrap.min.css',
         'plugins/font-awesome-4.7.0/css/font-awesome.min.css',
         'plugins/OwlCarousel2-2.2.1/owl.carousel.css',
         'plugins/OwlCarousel2-2.2.1/owl.theme.default.css',
         'plugins/OwlCarousel2-2.2.1/animate.css',
-        'styles/main_styles.css',
+//        'styles/main_styles.css',
         'styles/responsive.css',
-//        'styles/about.css',
+        'styles/about.css',
 //        'styles/about_responsive.css',
     ];
     public $js = [
@@ -46,8 +45,5 @@ class AppAsset extends AssetBundle
         'js/custom.js',
 
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-    ];
+
 }

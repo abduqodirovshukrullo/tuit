@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use app\models\UploadImage;
 /**
  * This is the model class for table "courses".
  *
@@ -17,7 +17,7 @@ use Yii;
  * @property string $content_en
  * @property int $order
  */
-class Courses extends \yii\db\ActiveRecord
+class Courses extends UploadImage
 {
     /**
      * {@inheritdoc}

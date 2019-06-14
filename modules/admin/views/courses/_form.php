@@ -10,9 +10,9 @@ use yii\widgets\ActiveForm;
 
 <div class="courses-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'imageFile', ['options' => ['class'=>'input-file']])->fileInput()->label('Upload image')?>
 
     <?= $form->field($model, 'title_uz')->textInput(['maxlength' => true]) ?>
 

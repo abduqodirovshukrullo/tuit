@@ -1,7 +1,5 @@
 <?php
-//$us = Yii::$app->user->identity->role;
-//print_r($us);
-//?>
+?>
 !-- Home -->
 <div class="home">
     <div class="home_slider_container">

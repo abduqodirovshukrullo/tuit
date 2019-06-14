@@ -14,7 +14,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm as Login;
 use app\models\ContactForm;
-
+use yii\web\View;
 class SiteController extends Controller
 {
     /**
@@ -100,19 +100,19 @@ class SiteController extends Controller
             ]);
         }
     }
-    public function actionSignup()
-    {
-        $model = new SignupModel();
-        if ($model->load(Yii::$app->getRequest()->post())) {
-            if ($user = $model->signup()) {
-                return $this->goHome();
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-    }
+//    public function actionSignup()
+//    {
+//        $model = new SignupModel();
+//        if ($model->load(Yii::$app->getRequest()->post())) {
+//            if ($user = $model->signup()) {
+//                return $this->goHome();
+//            }
+//        }
+//
+//        return $this->render('signup', [
+//            'model' => $model,
+//        ]);
+//    }
 
 
 
@@ -153,6 +153,20 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        $this->layout = 'about';
+//        $this->registerCssFile("@web/styles/about");
         return $this->render('about');
+    }
+    public function actionCourses()
+    {
+        $this->layout = 'about';
+//        $this->registerCssFile("@web/styles/about");
+        return $this->render('courses');
+    }
+    public function actionCourse()
+    {
+        $this->layout = 'about';
+//        $this->registerCssFile("@web/styles/about");
+        return $this->render('course');
     }
 }
