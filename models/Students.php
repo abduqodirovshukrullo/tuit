@@ -35,6 +35,7 @@ class Students extends \yii\db\ActiveRecord
     {
         return [
             [['image', 'name', 'name_ru', 'surname', 'surname_ru', 'group', 'subject', 'phone', 'email'], 'string', 'max' => 255],
+
         ];
     }
 

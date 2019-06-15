@@ -8,6 +8,7 @@ use app\models\TeachersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TeachersController implements the CRUD actions for Teachers model.
@@ -66,13 +67,21 @@ class TeachersController extends Controller
     {
         $model = new Teachers();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post()) && $model->save() ) {
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->image = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
+            $model->save();
+            if ($model->upload()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+        }
+        else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
@@ -86,10 +95,28 @@ class TeachersController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        $mod = $model->image;
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            if($model->imageFile = UploadedFile::getInstance($model, 'imageFile'))
+            {
+                $model->image = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
+                $model->save();
+
+                if ($model->upload()) {
+                    unlink($_SERVER["DOCUMENT_ROOT"]."/web/uploads/".$mod);
+//                        return $this->redirect(['view', 'id' => $model->id]);
+                }
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            else{
+                $model->image = $mod;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -104,7 +131,14 @@ class TeachersController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        if(isset($model->image)){
+            unlink($_SERVER["DOCUMENT_ROOT"]."/web/uploads/".$model->image);
+            $model->delete();
+        }
+        else{
+            $model->delete();
+        }
 
         return $this->redirect(['index']);
     }

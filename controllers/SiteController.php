@@ -66,16 +66,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $carousel = Carousel::find()->all();
-        $courses  = Courses::find()->limit(3)->all();
+        $this->layout = 'oldmain';
+        $carousels = Carousel::find()->all();
+        $courses  = Courses::find()->orderBy(['order'=>SORT_DESC])->limit(3)->all();
         $tutors = Teachers::find()->limit(4)->all();
-        $news  = News::find()->all();
+        $actives = News::find()->where(['status'=>1])->one();
+        $mains = News::find()->where(['status'=>2])->limit(4)->all();
         return $this->render('index',
         [
-            'carousel'=>$carousel,
+            'carousels'=>$carousels,
             'courses'=>$courses,
             'tutors'=>$tutors,
-            'news'=>$news,
+            'actives'=> $actives,
+            'mains'=>$mains,
+
         ]);
     }
 
@@ -153,20 +157,33 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        $this->layout = 'about';
+//        $this->layout = 'about';
 //        $this->registerCssFile("@web/styles/about");
         return $this->render('about');
     }
     public function actionCourses()
     {
-        $this->layout = 'about';
+//        $this->layout = 'about';
 //        $this->registerCssFile("@web/styles/about");
         return $this->render('courses');
     }
     public function actionCourse()
     {
-        $this->layout = 'about';
+//        $this->layout = 'about';
 //        $this->registerCssFile("@web/styles/about");
         return $this->render('course');
     }
+    public function actionNews()
+    {
+//        $this->layout = 'about';
+//        $this->registerCssFile("@web/styles/about");
+        return $this->render('news');
+    }
+    public function actionNewssingle()
+    {
+//        $this->layout = 'about';
+//        $this->registerCssFile("@web/styles/about");
+        return $this->render('newssingle');
+    }
+
 }

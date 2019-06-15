@@ -25,7 +25,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content_en')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(
+        [
+            '1'=>'Active',
+            '2'=>'Main',
+            '3'=>'Not publish',
+        ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

@@ -62,6 +62,7 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+//            'layout'=>'main',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

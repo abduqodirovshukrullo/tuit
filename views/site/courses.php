@@ -1,23 +1,24 @@
 <?php
 $this->registerCssFile("@web/styles/courses.css");
 $this->registerCssFile("@web/styles/courses_responsive.css");
+$this->title = "Courses";
 ?>
-<div class="home">
-    <div class="breadcrumbs_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="breadcrumbs">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Courses</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="home">-->
+<!--    <div class="breadcrumbs_container">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="breadcrumbs">-->
+<!--                        <ul>-->
+<!--                            <li><a href="index.html">Home</a></li>-->
+<!--                            <li>Courses</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- Courses -->
 

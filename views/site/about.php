@@ -1,27 +1,30 @@
 <?php
 use app\assets\AboutAppAsset;
 AboutAppAsset::register($this);
-use yii\web\View;
+//use yii\web\View;
 
 /** @var TYPE_NAME $registerCssFile */
-//$view->registerCssFile('@web/styles/about');
+//$this->registerCssFile('@web/styles/courses.css');
+$this->registerCssFile('@web/styles/about.css');
+$this->registerCssFile('@web/styles/about_responsive.css');
+$this->title = 'About';
 ?>
-<div class="home">
-    <div class="breadcrumbs_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="breadcrumbs">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>About</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="home">-->
+<!--    <div class="breadcrumbs_container">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="breadcrumbs">-->
+<!--                        <ul>-->
+<!--                            <li><a href="index.html">Home</a></li>-->
+<!--                            <li>About</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- About -->
 

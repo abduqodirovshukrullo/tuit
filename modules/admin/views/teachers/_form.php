@@ -10,15 +10,15 @@ use yii\widgets\ActiveForm;
 
 <div class="teachers-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'imageFile', ['options' => ['class'=>'input-file']])->fileInput()->label('Upload image')?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name_ru')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'surname_ru')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'role_uz')->textInput(['maxlength' => true]) ?>
 
@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'parol')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'parol')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
