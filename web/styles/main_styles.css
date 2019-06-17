@@ -116,6 +116,7 @@ p a:hover::after
 {
 	opacity: 0.2;
 }
+
 ::selection
 {
 	
@@ -228,6 +229,7 @@ section
 {
 	overflow: hidden;
 }
+
 .prlx
 {
 	height: 130% !important;
@@ -1115,6 +1117,17 @@ section
 /*********************************
 9. Counter
 *********************************/
+
+ .counter_form {
+	 position: static;
+	 width: 100%;
+	 max-width: 400px;
+	 padding: 30px;
+	 margin-left: auto;
+ }
+.counter_form .form-group {
+	width: 100%;
+}
 
 .counter
 {

@@ -6,9 +6,11 @@ use app\models\Carousel;
 use app\models\Courses;
 use app\models\News;
 use app\models\Signup as SignupModel;
+use app\models\Students;
 use app\models\Teachers;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -72,15 +74,31 @@ class SiteController extends Controller
         $tutors = Teachers::find()->limit(4)->all();
         $actives = News::find()->where(['status'=>1])->one();
         $mains = News::find()->where(['status'=>2])->limit(4)->all();
-        return $this->render('index',
-        [
-            'carousels'=>$carousels,
-            'courses'=>$courses,
-            'tutors'=>$tutors,
-            'actives'=> $actives,
-            'mains'=>$mains,
+//        $student = new Students();
+        $model = new Students();
 
-        ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+                return $this->refresh();
+        }
+        else
+        {
+            yii::$app->session->setFlash('error','error');
+//                return $this->refresh();
+            return $this->render('index',
+                [
+                    'carousels'=>$carousels,
+                    'courses'=>$courses,
+                    'tutors'=>$tutors,
+                    'actives'=> $actives,
+                    'mains'=>$mains,
+                    'model'=>$model,
+                ]);
+
+        }
+
+
+
     }
 
     /**
@@ -104,19 +122,25 @@ class SiteController extends Controller
             ]);
         }
     }
-//    public function actionSignup()
-//    {
-//        $model = new SignupModel();
-//        if ($model->load(Yii::$app->getRequest()->post())) {
-//            if ($user = $model->signup()) {
-//                return $this->goHome();
-//            }
-//        }
-//
-//        return $this->render('signup', [
-//            'model' => $model,
-//        ]);
-//    }
+    public function actionSignup()
+    {
+       $student = new Students();
+        if($student->load(Yii::$app->getRequest()->post())&& $student->save())
+        {
+            $student->name = $_POST['name'];
+            $student->phone = $_POST['phone'];
+            $student->group = $_POST['group'];
+            $student->email = $_POST['email'];
+            $student->subject = $_POST['subject'];
+            print_r($student);
+            exit();
+            $student->save();
+            return $this->redirect('site/index');
+
+
+
+        }
+    }
 
 
 
