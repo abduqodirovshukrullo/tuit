@@ -18,7 +18,7 @@ class AboutSearch extends About
     {
         return [
             [['id'], 'integer'],
-            [['title_uz', 'title_ru', 'title_en', 'content_uz', 'content_ru', 'content_en'], 'safe'],
+            [['img', 'title_uz', 'title_ru', 'title_en', 'content_uz', 'content_ru', 'content_en'], 'safe'],
         ];
     }
 
@@ -61,7 +61,8 @@ class AboutSearch extends About
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'title_uz', $this->title_uz])
+        $query->andFilterWhere(['like', 'img', $this->img])
+            ->andFilterWhere(['like', 'title_uz', $this->title_uz])
             ->andFilterWhere(['like', 'title_ru', $this->title_ru])
             ->andFilterWhere(['like', 'title_en', $this->title_en])
             ->andFilterWhere(['like', 'content_uz', $this->content_uz])

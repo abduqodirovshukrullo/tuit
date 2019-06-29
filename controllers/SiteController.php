@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\About;
 use app\models\Carousel;
 use app\models\Courses;
 use app\models\News;
@@ -122,25 +123,25 @@ class SiteController extends Controller
             ]);
         }
     }
-    public function actionSignup()
-    {
-       $student = new Students();
-        if($student->load(Yii::$app->getRequest()->post())&& $student->save())
-        {
-            $student->name = $_POST['name'];
-            $student->phone = $_POST['phone'];
-            $student->group = $_POST['group'];
-            $student->email = $_POST['email'];
-            $student->subject = $_POST['subject'];
-            print_r($student);
-            exit();
-            $student->save();
-            return $this->redirect('site/index');
-
-
-
-        }
-    }
+//    public function actionSignup()
+//    {
+//       $student = new Students();
+//        if($student->load(Yii::$app->getRequest()->post())&& $student->save())
+//        {
+//            $student->name = $_POST['name'];
+//            $student->phone = $_POST['phone'];
+//            $student->group = $_POST['group'];
+//            $student->email = $_POST['email'];
+//            $student->subject = $_POST['subject'];
+//            print_r($student);
+//            exit();
+//            $student->save();
+//            return $this->redirect('site/index');
+//
+//
+//
+//        }
+//    }
 
 
 
@@ -181,9 +182,12 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-//        $this->layout = 'about';
-//        $this->registerCssFile("@web/styles/about");
-        return $this->render('about');
+        $about = About::find()->all();
+        $tutors = Teachers::find()->limit(4)->all();
+        return $this->render('about',[
+            'about'=>$about,
+            'tutors'=>$tutors,
+        ]);
     }
     public function actionCourses()
     {

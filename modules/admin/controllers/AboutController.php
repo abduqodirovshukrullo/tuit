@@ -8,6 +8,7 @@ use app\models\AboutSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * AboutController implements the CRUD actions for About model.
@@ -66,13 +67,21 @@ class AboutController extends Controller
     {
         $model = new About();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post()) && $model->save() ) {
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->img = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
+            $model->save();
+            if ($model->upload()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+        }
+        else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
@@ -86,14 +95,33 @@ class AboutController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        $mod = $model->img;
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            if($model->imageFile = UploadedFile::getInstance($model, 'imageFile'))
+            {
+                $model->img = $model->id. '.' .$model->imageFile->baseName. '.' . $model->imageFile->extension;
+                $model->save();
+
+                if ($model->upload()) {
+                    unlink($_SERVER["DOCUMENT_ROOT"]."/web/uploads/".$mod);
+//                        return $this->redirect(['view', 'id' => $model->id]);
+                }
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            else{
+                $model->image = $mod;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+
 
     /**
      * Deletes an existing About model.
@@ -104,7 +132,14 @@ class AboutController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model=$this->findModel($id);
+        if(isset($model->img)){
+            unlink($_SERVER["DOCUMENT_ROOT"]."/web/uploads/".$model->img);
+            $model->delete();
+        }
+        else{
+            $model->delete();
+        }
 
         return $this->redirect(['index']);
     }

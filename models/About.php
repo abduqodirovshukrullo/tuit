@@ -1,13 +1,13 @@
 <?php
 
 namespace app\models;
-
 use Yii;
-
+use app\models\UploadImage;
 /**
  * This is the model class for table "about".
  *
  * @property int $id
+ * @property string $img
  * @property string $title_uz
  * @property string $title_ru
  * @property string $title_en
@@ -15,7 +15,7 @@ use Yii;
  * @property string $content_ru
  * @property string $content_en
  */
-class About extends \yii\db\ActiveRecord
+class About extends UploadImage
 {
     /**
      * {@inheritdoc}
@@ -32,7 +32,9 @@ class About extends \yii\db\ActiveRecord
     {
         return [
             [['content_uz', 'content_ru', 'content_en'], 'string'],
+            [['img'], 'string', 'max' => 100],
             [['title_uz', 'title_ru', 'title_en'], 'string', 'max' => 255],
+            [['imageFile'], 'file'],
         ];
     }
 
@@ -43,6 +45,7 @@ class About extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
+            'img' => Yii::t('app', 'Img'),
             'title_uz' => Yii::t('app', 'Title Uz'),
             'title_ru' => Yii::t('app', 'Title Ru'),
             'title_en' => Yii::t('app', 'Title En'),
@@ -51,4 +54,6 @@ class About extends \yii\db\ActiveRecord
             'content_en' => Yii::t('app', 'Content En'),
         ];
     }
+
+
 }

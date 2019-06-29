@@ -89,7 +89,6 @@ class TstudentsController extends Controller
         if (($model = Students::findOne($id)) !== null) {
             return $model;
         }
-
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }
